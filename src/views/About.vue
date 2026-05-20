@@ -1,168 +1,309 @@
 <template>
-  <div>
-    <div class="black-background vh-height">
-      <div class="no-decoration">
-        <router-link to="/">
-          <v-btn icon>
-            <v-icon class="icon-class">mdi-arrow-left</v-icon>
-          </v-btn>
-        </router-link>
-      </div>
-      <div class="big-header max-height d-flex align-center">
-        I architect and develop software solutions
-      </div>
-      <div></div>
+  <div class="about">
+    <Starfield />
+    <Satellite class="floating-sat" :size="70" :beam="true" />
+
+    <div class="topbar">
+      <router-link to="/" class="back-link">
+        <svg class="back-arrow" viewBox="0 0 24 12" aria-hidden="true">
+          <path d="M 1 6 L 23 6 M 1 6 L 7 1 M 1 6 L 7 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="back-text">return to base</span>
+      </router-link>
     </div>
-    <div class="black-background">
-      <div class="body-text d-flex flex-column align-center justify-center">
-        <div class="justify-start">
-          <div class="body-text-header">
-            About
-          </div>
-          <div class="body-text-subheader">
-            Hello! My name is Clay Kramp, and I am a software engineer reporting
-            from the mountains of Colorado!
-          </div>
-          <div class="body-text-body">
-            I have wide interests in web applications, data operations, UI/UX,
-            and machine learning, and have experiences to prove them, too! My
-            journey to become a software engineer began with a degree in Applied
-            Mathematics which opened my eyes to applying mathematical concepts
-            to solve complex business problems. I am also passionate about
-            high-performance computing, combined with efficient and elegant code
-            to solve day-to-day software problems.
-            <br />
-            <br />
-            <br />
-            My personality type is an
-            <a href="https://www.16personalities.com/enfj-personality">ENFJ</a>
-            and some of my core values about work are: <br />
-            <br />
-            <ul>
-              <li>
-                <i>Meaningful Work</i>: &nbsp;&nbsp;It's important to me that
-                the work I do is meaningful, and helps advance society (even if
-                it's marginal). I am not interested in developing a one-click
-                button to order a burger from McDonald's, but strongly invested
-                in solving complex issues to support initiatives like the
-                environment, hunger, or safety using my technical skills.<br /><br />
-              </li>
-              <li>
-                <i>Culture</i>: &nbsp;&nbsp;Work culture is <i>critical</i> to
-                have a succesful company. Knowing your co-workers strengths and
-                weaknesses, establishing a bond, and caring about their lives
-                lead to better work relationships, higher collaboration, and
-                overall more sustainable and safer code. It's a simple win-win
-                to improve both work and life.<br /><br />
-              </li>
-              <li>
-                <i>Professional Development</i>: &nbsp;&nbsp;I care deeply about
-                professional development outside of work. In my own experience,
-                getting certifications or taking courses outside of work has
-                helped me learn what I enjoy and what I don't enjoy (which are
-                equally important). I believe it has made me a more well-rounded
-                engineer, and helped me become a better mentor as well.<br /><br />
-              </li>
-              <li>
-                <i>Diversity, Inclusion, Belonging</i>: &nbsp;&nbsp;As a
-                minority myself, I find it important to develop an environment
-                where all can feel welcome and included. I am proud to serve as
-                an ERG leader, and intend to champion others to grow and succeed
-                in their careers in meaningful ways.
-              </li>
-            </ul>
-            <br />
-            <br />
-            While a graduate student, I worked as an Adjunct Instructor helping
-            to teach a course in Computer Science. This has also led to a
-            life-long interest in teaching and mentorship. I have had the
-            privilege of having phenomenal mentors in my life, and I find it
-            necessary to return that favor to the next set of mentees.
-            <br />
-            <br />
-            You can read more about my experiences from my resume below:
-            <br />
-            <br />
-            <a
-              href="https://www.dropbox.com/s/csg8x7t0z5geh9i/Clay%20Kramp%20Resume.pdf?dl=0"
-              target="_blank"
-              >Clay Kramp's Resume 4/25/2022</a
-            >
-          </div>
+
+    <section class="hero">
+      <h1 class="hero-title">I architect &amp; ship software at scale</h1>
+      <div class="hero-sub">
+        From Earth observation to satellite ground software — translating mountains of data into systems people can actually fly.
+      </div>
+    </section>
+
+    <section class="profile">
+      <div class="profile-card">
+        <div class="profile-header">
+          <div class="profile-tag">// identity packet</div>
+          <h2 class="profile-name">Clay Ito</h2>
+          <div class="profile-role">Staff Software Engineer · Boulder, CO</div>
         </div>
+
+        <p>
+          Software engineer based in the Colorado mountains. I work across web apps,
+          data operations, UI/UX, and machine learning — currently focused on satellite
+          ground software: the systems on the ground that talk to spacecraft in orbit. My path started with an Applied
+          Mathematics degree, which "taught me how to think". High-performance computing and elegant,
+          efficient code are how I keep the day-to-day fun.
+        </p>
+
+        <p>
+          My personality type is
+          <a href="https://www.16personalities.com/enfj-personality" target="_blank">ENFJ</a>.
+          Core values I bring to a crew:
+        </p>
+
+        <ul class="values">
+          <li>
+            <span class="value-name">Meaningful Work</span>
+            — I want the work to push society forward, even marginally. Not interested in
+            one-click burger buttons; very interested in environment, food security, safety,
+            and space.
+          </li>
+          <li>
+            <span class="value-name">Culture</span>
+            — Culture is the hidden infrastructure. Know your crew, build the bond,
+            care about their lives. Better relationships → better collaboration → safer,
+            more sustainable code.
+          </li>
+          <li>
+            <span class="value-name">Professional Development</span>
+            — Learning outside of work teaches me what I love and what I don't. Both matter.
+            It also keeps me a sharper mentor.
+          </li>
+          <li>
+            <span class="value-name">Diversity, Inclusion, Belonging</span>
+            — As a minority myself, I work to build environments where everyone can land safely
+            and grow. Proud to have served as an ERG leader.
+          </li>
+        </ul>
+
+        <p>
+          While in grad school I worked as an Adjunct Instructor teaching CS, which set off a
+          lifelong interest in teaching and mentorship. I've had phenomenal mentors; I owe the
+          next class the same.
+        </p>
+
+        <p>
+          More mission history on my resume:
+        </p>
+
+        <a
+          class="resume-link"
+          href="https://www.dropbox.com/s/csg8x7t0z5geh9i/Clay%20Kramp%20Resume.pdf?dl=0"
+          target="_blank"
+        >
+          ↗ Clay Ito's resume (4/25/2022)
+        </a>
       </div>
-    </div>
+    </section>
+
+    <footer class="signoff">
+      <div class="signoff-text">🛰 signing off · stand by for next pass</div>
+    </footer>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
+import Starfield from "../components/Starfield.vue";
+import Satellite from "../components/Satellite.vue";
 
-export default Vue.extend({
-  name: "HelloWorld",
-
-  data: () => ({})
+export default defineComponent({
+  name: "About",
+  components: { Starfield, Satellite }
 });
 </script>
 
 <style scoped>
-@keyframes slideIntoThoseDMs {
-  0% {
-    transform: translateY(20%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-.vh-height {
-  height: 100vh;
-}
-.black-background {
+.about {
   position: relative;
-  background-color: black;
-}
-.max-height {
-  height: 100%;
-}
-.no-decoration >>> a {
-  text-decoration: none;
-}
-.icon-class {
-  color: white !important;
-  font-size: 3rem !important;
-  padding-left: 2rem;
-  padding-top: 2rem;
-}
-.big-header {
-  font-size: 6rem;
+  min-height: 100vh;
   color: white;
+  background: #000;
+  padding-bottom: 6rem;
+}
+.topbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
   font-family: "JetBrains Mono", monospace;
-  padding-left: 5rem;
-  animation: 0.3s ease-out 0s 1 slideIntoThoseDMs;
 }
-.body-text {
+.back-link {
   color: white;
-  font-size: 2rem;
-  max-width: 800px;
-  margin: auto;
-  width: 100%;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.back-link:hover { color: #5ac8fa; }
+.back-arrow {
+  width: 1.6rem;
+  height: 0.8rem;
+  display: block;
+  flex-shrink: 0;
+}
+.back-text { line-height: 1; }
+.hud {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  color: #5ac8fa;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.hud-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5cff8a;
+  box-shadow: 0 0 8px #5cff8a;
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+.green { color: #5cff8a; }
+.hero {
+  position: relative;
+  z-index: 2;
+  max-width: 64rem;
+  margin: 3rem auto 2rem;
+  padding: 0 3rem;
+}
+.hero-tag {
+  font-family: "JetBrains Mono", monospace;
+  color: #5ac8fa;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+.hero-title {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 4rem;
+  margin: 0.5rem 0 1rem;
+  line-height: 1.05;
+  background: linear-gradient(90deg, #ffffff 0%, #5ac8fa 60%, #b388ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 18px rgba(90, 200, 250, 0.35));
+}
+.hero-sub {
   font-family: "Lato", sans-serif;
+  color: #c8d4e2;
+  font-size: 1.1rem;
+  max-width: 40rem;
+  line-height: 1.6;
 }
-.body-text-header {
-  color: red;
+.profile {
+  position: relative;
+  z-index: 2;
+  max-width: 56rem;
+  margin: 4rem auto 0;
+  padding: 0 3rem;
+}
+.profile-card {
+  background: linear-gradient(135deg, rgba(20, 30, 60, 0.55) 0%, rgba(10, 10, 30, 0.2) 100%);
+  border: 1px solid rgba(90, 200, 250, 0.25);
+  border-radius: 16px;
+  padding: 3rem;
+  backdrop-filter: blur(8px);
+  font-family: "Lato", sans-serif;
+  color: #d4dbe4;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+.profile-header { margin-bottom: 2rem; }
+.profile-tag {
+  font-family: "JetBrains Mono", monospace;
+  color: #5ac8fa;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+.profile-name {
+  font-family: "JetBrains Mono", monospace;
   font-size: 3rem;
+  color: white;
+  margin: 0.3rem 0 0.4rem;
 }
-.body-text-subheader {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  font-size: 1.5rem;
+.profile-role {
+  font-family: "JetBrains Mono", monospace;
+  color: #ff8a3d;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
 }
-.body-text-body {
-  font-size: 1.25rem;
-  padding-top: 2rem;
-  padding-bottom: 15rem;
+.profile-card p { margin: 1.25rem 0; }
+.profile-card a {
+  color: #5ac8fa;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
 }
-a {
-  color: red;
+.profile-card a:hover { color: #ff8a3d; }
+.values {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+.values li {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+.values li::before {
+  content: "↪";
+  position: absolute;
+  left: 0;
+  color: #5ac8fa;
+}
+.value-name {
+  color: #ff8a3d;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+.resume-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: "JetBrains Mono", monospace;
+  color: #5ac8fa !important;
+  border: 1px solid currentColor;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  letter-spacing: 0.1em;
+  text-decoration: none !important;
+}
+.resume-link:hover {
+  color: #ff8a3d !important;
+  background: rgba(255, 138, 61, 0.08);
+}
+.floating-sat {
+  position: absolute;
+  top: 18%;
+  right: 5%;
+  z-index: 1;
+  animation: float-sat 14s ease-in-out infinite;
+}
+.signoff {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 5rem;
+  font-family: "JetBrains Mono", monospace;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.2em;
+}
+.signoff-line { font-size: 0.8rem; color: #5ac8fa; }
+.signoff-text { margin-top: 0.5rem; font-size: 1rem; }
+
+@keyframes float-sat {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-30px) rotate(4deg); }
+}
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+@media (max-width: 900px) {
+  .topbar { padding: 1rem 1.5rem; }
+  .hud { display: none; }
+  .hero, .profile { padding: 0 1.5rem; }
+  .hero-title { font-size: 2.5rem; }
+  .profile-card { padding: 1.5rem; }
+  .floating-sat { display: none; }
 }
 </style>
