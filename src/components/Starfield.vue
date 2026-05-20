@@ -45,13 +45,16 @@ export default defineComponent({
       w: 0,
       h: 0,
       dpr: 1,
-      lastShoot: 0
+      lastShoot: 0,
+      prevW: 0
     };
   },
   mounted() {
     this.dpr = Math.min(window.devicePixelRatio || 1, 2);
-    this.init();
-    window.addEventListener("resize", this.init);
+    this.setupCanvas();
+    this.buildStars();
+    this.prevW = this.w;
+    window.addEventListener("resize", this.onResize);
     if (this.parallax) {
       window.addEventListener("mousemove", this.onMove);
     }
@@ -59,23 +62,35 @@ export default defineComponent({
   },
   beforeDestroy() {
     cancelAnimationFrame(this.raf);
-    window.removeEventListener("resize", this.init);
+    window.removeEventListener("resize", this.onResize);
     window.removeEventListener("mousemove", this.onMove);
   },
   methods: {
-    init() {
+    setupCanvas() {
       const canvas = this.$refs.canvas as HTMLCanvasElement;
       if (!canvas) return;
       this.w = window.innerWidth;
-      this.h = window.innerHeight;
+      // Use the larger of inner height vs screen height so mobile address-bar
+      // collapse/expand doesn't shrink the canvas and clip stars.
+      this.h = Math.max(window.innerHeight, window.screen?.height || 0);
       canvas.style.width = this.w + "px";
       canvas.style.height = this.h + "px";
       canvas.width = this.w * this.dpr;
       canvas.height = this.h * this.dpr;
       this.ctx = canvas.getContext("2d");
       if (!this.ctx) return;
+      this.ctx.setTransform(1, 0, 0, 1, 0, 0);
       this.ctx.scale(this.dpr, this.dpr);
-      this.buildStars();
+    },
+    onResize() {
+      this.setupCanvas();
+      // Only rebuild stars when width changes meaningfully (orientation flip
+      // or large desktop resize). Height-only changes (mobile address bar)
+      // leave stars exactly where they were.
+      if (Math.abs(this.w - this.prevW) > 80) {
+        this.buildStars();
+        this.prevW = this.w;
+      }
     },
     buildStars() {
       const count = Math.floor((this.w * this.h) / 2400 * this.density);
